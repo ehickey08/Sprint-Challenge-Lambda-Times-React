@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Tabs from './Tabs';
 import Cards from './Cards';
-
+import Carousel from '../Carousel/Carousel'
 import { tabData, cardData } from '../../data';
 import styled from 'styled-components'
 
@@ -18,7 +18,8 @@ export default class Content extends Component {
     this.state = {
       selected: 'all',
       tabs: [],
-      cards: []
+      cards: [],
+      username : ''
     };
   }
 
@@ -39,7 +40,7 @@ export default class Content extends Component {
    if(this.state.selected === 'all')
        return cardData;
     else
-        return this.state.cards.filter(card => card.tab === this.state.selected);    
+        return this.state.cards.filter(card => card.tab === this.state.selected);
   };
 
   render() {
@@ -50,6 +51,7 @@ export default class Content extends Component {
             selectedTab = {this.state.selected}
             selectTabHandler = {this.changeSelected}
         />
+        <Carousel />
         <Cards cards={this.filterCards()} />
       </ContentDiv>
     );

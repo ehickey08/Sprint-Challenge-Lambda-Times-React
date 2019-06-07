@@ -74,7 +74,7 @@ const RightSpan = styled.span`
     cursor:pointer;
 `
 
-const TopBar = () => {
+const TopBar = props => {
   return (
     <TopBarDiv>
       <TopContainerDiv>
@@ -85,7 +85,7 @@ const TopBar = () => {
           <CenterSpan>GENERAL</CenterSpan><CenterSpan>BROWNBAG</CenterSpan><CenterSpan>RANDOM</CenterSpan><CenterSpan>MUSIC</CenterSpan><CenterSpan>ANNOUNCEMENTS</CenterSpan>
         </CenterDiv>
         <RightDiv>
-          <RightSpan>LOG IN</RightSpan>
+          <RightSpan onClick = {() => props.logout()}>LOG OUT</RightSpan>
         </RightDiv>
       </TopContainerDiv>
     </TopBarDiv>

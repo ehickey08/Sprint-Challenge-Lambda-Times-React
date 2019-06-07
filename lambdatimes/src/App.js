@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import TopBar from './components/TopBar';
-import Header from './components/Header';
-import Content from './components/Content/Content';
 import styled from 'styled-components'
+import withAuthenticate from './components/Authentication/withAuthenticate'
+import NewsPage from './components/NewsPage'
 
 const AppDiv = styled.div`
     display: flex;
@@ -12,14 +11,12 @@ const AppDiv = styled.div`
     color: #333;
     font-family: 'PT Sans', sans-serif;
 `
+const ComponentFromWithAuthenticate = withAuthenticate(NewsPage)
+
 const App = () => {
   return (
-    <AppDiv>
-      <TopBar />
-      <Header />
-      <Content />
-    </AppDiv>
-  );
+    <ComponentFromWithAuthenticate />
+  )
 }
 
 export default App;
